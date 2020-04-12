@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./App.css";
 import Form from "./components/Form";
@@ -34,10 +35,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">My Food Recipe</h1>
-        </header>
-        <Form getRecipe={this.getRecipe} />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <Link class="navbar-brand" to="/">
+            My Food Recipe
+          </Link>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <Link class="nav-link" to="/aboutus">
+                  About us
+                </Link>
+              </li>
+            </ul>
+            <Form getRecipe={this.getRecipe} />
+          </div>
+        </nav>
         <Recipes recipeHits={this.state.recipeHits} />
       </div>
     );
